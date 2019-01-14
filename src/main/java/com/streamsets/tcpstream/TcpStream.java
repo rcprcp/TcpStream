@@ -10,13 +10,13 @@ public class TcpStream {
   public static void main(String[] args) {
 
     final String hostname = "localhost";
-    final int port = 55_555;
+    final int PORT = 55_555;
     final int RECORD_COUNT = 100_000;
     while (true) {
       final long startTime = System.currentTimeMillis();
       while (true) {
         long batchTime = System.currentTimeMillis();
-        try (Socket clientSocket = new Socket(hostname, port)) {
+        try (Socket clientSocket = new Socket(hostname, PORT)) {
           DataOutputStream output = new DataOutputStream(clientSocket.getOutputStream());
 
           for (int i = 0; i < RECORD_COUNT; i++) {
