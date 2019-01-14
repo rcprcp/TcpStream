@@ -23,22 +23,25 @@ public class TcpStream {
             String cheese = "hello there. record " + i + "!\n";
             output.writeBytes(cheese);
           }
-        } catch (IOException e) {
-          System.err.println("exception " + e.getMessage());
-          e.printStackTrace();
-          break;
-        }
-        long curr = System.currentTimeMillis() - batchTime;
-
-        try {
-          Thread.sleep(10);
-        } catch (InterruptedException ex) {
-          System.out.println("Exception: " + ex.getMessage());
+        } catch (IOException ex) {
+          System.err.println("exception " + ex.getMessage());
           try {
             Thread.sleep(1000);
           } catch (InterruptedException e) {
-            System.out.println("Interruped Exception: " + e.getMessage());
+            System.out.println("InterruptedException " + e.getMessage());
+            e.printStackTrace();
+            System.exit(27);
           }
+          break;
+        }
+
+        long curr = System.currentTimeMillis() - batchTime;
+
+        try {
+          Thread.sleep(50);
+        } catch (InterruptedException ex) {
+          System.out.println("Exception: " + ex.getMessage());
+          System.exit(27);
         }
         long elapsed = (System.currentTimeMillis() - startTime)/1000;
         System.out.print(String.format("%s  %d:%02d:%02d  batch elapsed %d\n",
