@@ -1,5 +1,5 @@
 # TcpStream
-writes records to specific, local, tcp port
+Writes records to specific, local, tcp port.  I use this for testing the TCP Server Origin on StreamSets Data Collector.
 
 Currently, there are no command line parameters. Maybe we'll change that.
 
