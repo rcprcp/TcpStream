@@ -12,6 +12,7 @@ public class TcpStream {
     final String hostname = "localhost";
     final int PORT = 55_555;
     final int RECORD_COUNT = 100_000;
+    long globalRecordCount = 0;
     while (true) {
       final long startTime = System.currentTimeMillis();
       while (true) {
@@ -20,8 +21,9 @@ public class TcpStream {
           DataOutputStream output = new DataOutputStream(clientSocket.getOutputStream());
 
           for (int i = 0; i < RECORD_COUNT; i++) {
-            String cheese = "hello there. record " + i + "!\n";
+            String cheese = "hello there. record " + globalRecordCount + "!\n";
             output.writeBytes(cheese);
+            globalRecordCount++;
           }
         } catch (IOException ex) {
           System.err.println("exception " + ex.getMessage());
