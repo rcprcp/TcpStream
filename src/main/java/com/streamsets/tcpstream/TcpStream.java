@@ -21,7 +21,7 @@ public class TcpStream {
           DataOutputStream output = new DataOutputStream(clientSocket.getOutputStream());
 
           for (int i = 0; i < RECORD_COUNT; i++) {
-            String cheese = "hello there. record " + globalRecordCount + "!\n";
+            String cheese = "" + globalRecordCount + " hello there! record " + globalRecordCount + "!\n";
             output.writeBytes(cheese);
             globalRecordCount++;
           }
