@@ -98,7 +98,6 @@ public class TcpStream {
           } catch (InterruptedException ex) {
             System.err.println("exception " + ex.getMessage());
           }
-          output.flush();
         } catch (IOException ex) {
           System.err.println("exception " + ex.getMessage());
           try {
