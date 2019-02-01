@@ -87,12 +87,16 @@ public class TcpStream {
       while (globalRecordCount < nummMessagesToSend) {
         long batchTime = System.currentTimeMillis();
         try (Socket clientSocket = new Socket(HOSTNAME, PORT)) {
-          DataOutputStream output = new DataOutputStream(clientSocket.getOutputStream());
-
-          for (int i = 0; i < RECORD_COUNT && globalRecordCount < nummMessagesToSend; i++) {
-            String cheese = "hello there. record " + globalRecordCount + "!\n";
-            output.writeBytes(cheese);
-            globalRecordCount++;
+          try (DataOutputStream output = new DataOutputStream(clientSocket.getOutputStream())) {
+            for (int i = 0; i < RECORD_COUNT && globalRecordCount < nummMessagesToSend; i++) {
+              String cheese = "hello there. record " + globalRecordCount + "!\n";
+              output.writeBytes(cheese);
+              globalRecordCount++;
+            }
+            output.flush();
+            Thread.sleep(2000);
+          } catch (InterruptedException ex) {
+            System.err.println("exception " + ex.getMessage());
           }
         } catch (IOException ex) {
           System.err.println("exception " + ex.getMessage());
