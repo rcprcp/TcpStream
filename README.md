@@ -3,7 +3,7 @@ Writes records to specific, local, tcp port.  I use this for testing the TCP Ser
 
 Currently, there are no command line parameters. It has been enhanced to use a command file. 
 
-Compile with `mvn clean install` and you should have an executable jar "tcpstream-1.0-SNAPSHOT-jar-with-dependencies.jar" in the target sub directory.  
+Compile with `mvn clean package` and you should have an executable jar "tcpstream-1.0-SNAPSHOT-jar-with-dependencies.jar" in the target sub directory.  
 
 To run the program interactively: `java -jar tcpstream-1.0-SNAPSHOT-jar-with-dependencies.jar`
 
