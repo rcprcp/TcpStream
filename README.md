@@ -1,9 +1,15 @@
 # TcpStream
 Writes records to specific, local, tcp port.  I use this for testing the TCP Server Origin on StreamSets Data Collector.
 
-Currently, there are no command line parameters. It has been enhanced to use a command file. 
+Currently, there are no command line parameters. It has been enhanced to use a command file.
+The PORT number is still hard coded as 55,555 
 
-Compile with `mvn clean package` and you should have an executable jar "tcpstream-1.0-SNAPSHOT-jar-with-dependencies.jar" in the target sub directory.  
+Build: 
+    
+    http://github.com/rcprcp/TcpStream.git
+    cd TcpStream
+    mvn clean package
+    cd target
 
 To run the program interactively: `java -jar tcpstream-1.0-SNAPSHOT-jar-with-dependencies.jar`
 
