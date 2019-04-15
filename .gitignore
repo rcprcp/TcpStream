@@ -1,0 +1,5 @@
+# Ignore Java and Intellij files
+*.xml
+*.class
+target/*
+*.iml
