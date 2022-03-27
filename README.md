@@ -6,7 +6,7 @@ The PORT number is still hard coded as 55,555
 
 Build: 
     
-    http://github.com/rcprcp/TcpStream.git
+    git clone http://github.com/rcprcp/TcpStream.git
     cd TcpStream
     mvn clean package
     cd target
